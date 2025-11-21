@@ -1,0 +1,47 @@
+/* Morenex Minimal Luxe — theme.css
+   Bold Modern Minimal — Base tokens
+*/
+:root{
+  --max-width:1200px;
+  --accent: #0b0b0b;
+  --muted:#6b6b6b;
+  --gap:24px;
+  --radius:8px;
+}
+
+/* Reset + base */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{font-family:Inter, system-ui, -apple-system, 'Helvetica Neue', Arial; color:var(--accent); margin:0; background:#fff; -webkit-font-smoothing:antialiased;}
+.container{max-width:var(--max-width); margin:0 auto; padding:0 20px}
+
+/* Typography */
+.h1{font-size:48px; line-height:1.02; letter-spacing:-0.02em; font-weight:700; margin:0 0 12px;}
+.h2{font-size:28px; font-weight:700; margin:0 0 10px;}
+.lead{font-size:18px; color:var(--muted); margin:0 0 18px;}
+
+/* Buttons */
+.btn{display:inline-block;padding:12px 18px;border-radius:6px;text-decoration:none;border:0;cursor:pointer;font-weight:600}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-ghost{background:transparent;border:1px solid var(--accent);color:var(--accent)}
+
+/* Header / Footer */
+.site-header{border-bottom:1px solid #eee;padding:18px 0;background:#fff;position:sticky;top:0;z-index:60}
+.header-inner{display:flex;align-items:center;justify-content:space-between}
+.logo a{font-weight:700;font-size:18px;text-decoration:none;color:var(--accent)}
+
+/* Hero */
+.hero{padding:80px 0}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.hero-media img{width:100%;height:auto;border-radius:10px;display:block;object-fit:cover}
+
+/* Marquee */
+.marquee{width:100%;overflow:hidden;border-top:1px solid #f2f2f2;border-bottom:1px solid #f2f2f2;padding:12px 0;margin:30px 0}
+.marquee-inner{white-space:nowrap;display:inline-block;animation:marquee 14s linear infinite}
+@keyframes marquee{from{transform:translateX(0)} to{transform:translateX(-50%)}}
+
+/* Responsiveness */
+@media (max-width:800px){
+  .hero-grid{grid-template-columns:1fr;gap:24px;padding:40px 0}
+  .h1{font-size:32px}
+}
