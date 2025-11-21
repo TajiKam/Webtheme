@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Morenex Minimal Luxe — Bold Modern Minimal -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{% if page_title %}{{ page_title }} — {% endif %}{{ shop.name }}</title>
+    {{ 'theme.css' | asset_url | stylesheet_tag }}
+    {{ 'theme.js' | asset_url | script_tag }}
+    {{ content_for_header }}
+  </head>
+  <body class="morenex-theme">
+    {% section 'announcement-bar' %}
+    {% section 'header' %}
+    <main id="MainContent" role="main">
+      {{ content_for_layout }}
+    </main>
+    {% section 'footer' %}
+    {{ content_for_footer }}
+  </body>
+</html>
