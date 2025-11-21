@@ -1,0 +1,98 @@
+<!-- Hero banner — Bold Modern Minimal -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <h1 class="h1">{{ section.settings.heading }}</h1>
+        {% if section.settings.subheading != blank %}
+          <p class="lead">{{ section.settings.subheading }}</p>
+        {% endif %}
+        <div class="hero-ctas">
+          {% if section.settings.button_text != blank %}
+            <a href="{{ section.settings.button_link }}" class="btn btn-primary">{{ section.settings.button_text }}</a>
+          {% endif %}
+          {% if section.settings.secondary_text != blank %}
+            <a href="{{ section.settings.secondary_link }}" class="btn btn-ghost">{{ section.settings.secondary_text }}</a>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="hero-media">
+        {%- if section.settings.image != blank -%}
+          <img src="{{ section.settings.image | image_url: width:1200 }}" alt="{{ section.settings.image_alt }}">
+        {%- else -%}
+          <!-- placeholder references /mnt/data/IMG_9059.dng copied into assets as hero-placeholder.dng -->
+          <img src="{{ 'hero-placeholder.dng' | asset_url }}" alt="Placeholder hero">
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero banner (Bold)",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Built for performance, designed for life"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Minimal. Bold. High-performance products."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Hero image"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image alt text",
+      "default": "Hero image"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Primary button text",
+      "default": "Shop now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Primary button link",
+      "default": "/collections/all"
+    },
+    {
+      "type": "text",
+      "id": "secondary_text",
+      "label": "Secondary button text",
+      "default": ""
+    },
+    {
+      "type": "url",
+      "id": "secondary_link",
+      "label": "Secondary button link",
+      "default": ""
+    }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Default",
+      "category": "Hero",
+      "settings": {
+        "heading": "Built for performance, designed for life",
+        "subheading": "Minimal. Bold. High-performance products.",
+        "button_text": "Shop now",
+        "button_link": "/collections/all"
+      }
+    }
+  ]
+}
+{% endschema %}
